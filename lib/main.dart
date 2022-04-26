@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:teste_sqlite/demo.dart';
+import 'package:flutter_video/demo.dart';
 
 void main() {
+  //PARA EVITAR QUE A APLICAÇÃO TENHA ALGUM ERRO
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
-
+  // Esse widget é a raiz da aplização
   @override
-  State<MyApp> createState() => _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowMaterialGrid: false,
-      title: 'Flutter Local DataBase',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Local Database',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
