@@ -1,33 +1,19 @@
-import 'dart:convert';
-
 class Contact {
   int? id;
-  String? name;
-  String? contact;
-  
-  Contact({this.id,this.contact,this.name});
+  String name;
+  String contact;
 
-  Map<String, dynamic> toMap() {
-    final result = <String, dynamic>{};
-  
-    if(id != null){
-      result.addAll({'id': id});
-    }
-    result.addAll({'name': name});
-    result.addAll({'contact': contact});
-  
-    return result;
-  }
+  Contact({this.id, required this.name, required this.contact});
 
-  factory Contact.fromMap(Map<String, dynamic> map) {
-    return Contact(
-      id: map['id']?.toInt(),
-      name: map['name'] ?? '',
-      contact: map['contact'] ?? '',
-    );
-  }
+  factory Contact.fromJson(Map<String, dynamic> json) => Contact(
+        id: json['id'],
+        name: json['name'],
+        contact: json['contact'],
+      );
 
-  String toJson() => json.encode(toMap());
-
-  factory Contact.fromJson(String source) => Contact.fromMap(json.decode(source));
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'contact': contact,
+      };
 }
